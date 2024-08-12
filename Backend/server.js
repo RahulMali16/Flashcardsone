@@ -16,6 +16,41 @@ async function createQuestion(text) {
     });
 }
 
+async function deleteQuestion(id) {
+    return await prisma.question.delete({
+        where: { id: Number(id) },
+    });
+}
+
+
+async function deleteAnswer(id) {
+    return await prisma.answer.delete({
+        where: { id: Number(id) },
+    });
+}
+
+
+app.delete("/question/:id", async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await deleteQuestion(id);
+        res.json({ message: "Question Deleted", result });
+    } catch (error) {
+        res.status(500).json({ error: "Failed to delete question", details: error.message });
+    }
+});
+
+
+app.delete("/answer/:id", async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await deleteAnswer(id);
+        res.json({ message: "Answer Deleted", result });
+    } catch (error) {
+        res.status(500).json({ error: "Failed to delete answer", details: error.message });
+    }
+});
+
 async function createAnswer(text, isCorrect, questionId) {
     return await prisma.answer.create({
         data: { 
