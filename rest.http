@@ -1,0 +1,20 @@
+POST http://localhost:8081/question
+Content-Type: application/json
+
+{
+    "text": "What is capital of India?"
+}
+
+
+###
+POST http://localhost:8081/answer
+Content-Type: application/json
+
+{
+    "text": "New Delhi",
+    "questionId": 2,
+    "isCorrect": false
+}
+
+###
+GET http://localhost:8081/questions
