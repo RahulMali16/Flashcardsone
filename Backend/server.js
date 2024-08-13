@@ -7,7 +7,7 @@ const cors = require("cors");
 app.use(express.json());
 
 app.use(cors({
-    origin: ["http://localhost:3000"]
+    origin: ["https://66bba6ea7cf6ac94d476ea0c--thunderous-empanada-e31d30.netlify.app/"]
 }))
 
 async function createQuestion(text) {
