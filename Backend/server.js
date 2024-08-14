@@ -7,7 +7,7 @@ const cors = require("cors");
 app.use(express.json());
 
 app.use(cors({
-    origin: ["https://thunderous-empanada-e31d30.netlify.app/"]
+    origin: ["https://thunderous-empanada-e31d30.netlify.app"]
 }))
 
 async function createQuestion(text) {
